@@ -4,7 +4,7 @@ Setup consists of multiple steps, which are as follows
 1. Clone the repository
 2. Spin container
     ```sh
-    $ docker compose up --build
+    $ docker compose up --build -d
     ```
 3. Enter into docker container shell 
     ```sh
@@ -21,6 +21,10 @@ Setup consists of multiple steps, which are as follows
 
     # below command will create multiple dummy users
     $ python manage.py loaduser --file user.json
+    ```
+5. Now restart container
+    ```sh
+    $ docker compose restart
     ```
 5. We have following API endpoints available
     ```txt
