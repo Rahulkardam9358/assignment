@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  mern_server:
+    build:
+      context: .
+    volumes:
+      - .:/home/app
+    ports:
+      - 8000:8000
+    image: assignment:v1.0
+    container_name: assignment_container
+    command: python manage.py runserver 0.0.0.0:8000
