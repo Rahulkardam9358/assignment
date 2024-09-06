@@ -13,18 +13,6 @@ class UserRegisterUser(generics.CreateAPIView):
     serializer_class = UserCreateSerializer
     permission_classes = [AllowAny, ]
 
-    def perform_create(self, serializer):
-        # Get the validated data from the serializer
-        validated_data = serializer.validated_data
-        # Extract and hash the password
-        password = validated_data.pop('password', None)
-        if password:
-            hashed_password = make_password(password)
-            # Update the user instance with the hashed password
-            serializer.save(password=hashed_password)
-        else:
-            serializer.save()
-
 
 class GetUserDetailView(generics.RetrieveAPIView):
     queryset = User.objects.all()
